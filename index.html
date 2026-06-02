@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Special Gift</title>
+    <title>Our Special Gift - Blue Floral</title>
     <style>
         :root {
-            --bg-dark: #0f172a;
+            --bg-dark: #090d16;
             --blue-primary: #38bdf8;
             --blue-secondary: #0284c7;
             --blue-light: #e0f2fe;
@@ -54,28 +54,29 @@
 
         /* --- SCREEN 1: PIN ACCESS --- */
         .pin-container {
-            background: rgba(2, 132, 199, 0.15);
-            backdrop-filter: blur(10px);
+            background: rgba(2, 132, 199, 0.1);
+            backdrop-filter: blur(15px);
             padding: 40px 30px;
             border-radius: 20px;
-            border: 2px solid var(--blue-secondary);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             text-align: center;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 40px rgba(2, 132, 199, 0.15);
             max-width: 360px;
             width: 100%;
         }
 
         .pin-container h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--blue-primary);
+            letter-spacing: 0.5px;
         }
 
         .pin-container p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 25px;
             color: var(--blue-light);
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         .pin-inputs {
@@ -88,12 +89,12 @@
         .pin-box {
             width: 50px;
             height: 55px;
-            border: 2px solid #334155;
-            border-radius: 10px;
-            background: rgba(15, 23, 42, 0.6);
+            border: 1.5px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            background: rgba(9, 13, 22, 0.8);
             color: #fff;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
             transition: all 0.3s;
         }
@@ -101,27 +102,27 @@
         .pin-box:focus {
             outline: none;
             border-color: var(--blue-primary);
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
         }
 
         .btn {
             background: linear-gradient(135deg, var(--blue-secondary), var(--blue-primary));
             border: none;
-            padding: 12px 30px;
+            padding: 12px 35px;
             color: white;
             border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
         }
 
-        /* --- TRANSISI BUNGA BERMEKARAN --- */
+        /* --- SEMERBAK TRANSISI BUNGA MAWAR & LILY --- */
         #flower-transition-overlay {
             position: fixed;
             top: 0;
@@ -129,30 +130,24 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 999;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+            z-index: 9999;
         }
 
-        .blooming-flower {
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, #e0f2fe 10%, #7dd3fc 40%, #0284c7 70%, transparent 100%);
-            border-radius: 50%;
-            opacity: 0;
+        .blooming-flower-mesh {
             position: absolute;
-            transition: width 1.2s cubic-bezier(0.1, 0.8, 0.3, 1), 
-                        height 1.2s cubic-bezier(0.1, 0.8, 0.3, 1), 
-                        opacity 0.6s ease;
+            font-size: 0px;
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+            transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
+            user-select: none;
+            filter: drop-shadow(0 5px 15px rgba(2,132,199,0.4));
         }
 
         /* --- SCREEN 2: SLIDESHOW FOTO --- */
         .slider-wrapper {
             width: 100%;
-            max-width: 450px;
-            height: 80vh;
+            max-width: 420px;
+            height: 82vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -161,12 +156,13 @@
 
         .slide-container {
             width: 100%;
-            height: 85%;
+            height: 82%;
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background: #1e293b;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            background: #111827;
+            border: 1px solid rgba(56, 189, 248, 0.15);
         }
 
         .slide {
@@ -178,7 +174,7 @@
             transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            background: #1e293b;
+            background: #111827;
         }
 
         .slide.active {
@@ -192,21 +188,21 @@
 
         .slide img {
             width: 100%;
-            height: 78%;
+            height: 76%;
             object-fit: cover;
         }
 
         .slide-caption {
-            height: 22%;
-            background: rgba(15, 23, 42, 0.95);
-            padding: 15px;
+            height: 24%;
+            background: rgba(9, 13, 22, 0.95);
+            padding: 15px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--blue-light);
-            border-top: 2px solid rgba(56, 189, 248, 0.3);
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
             font-weight: 500;
             line-height: 1.4;
         }
@@ -216,61 +212,62 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 15px;
-            padding: 0 10px;
+            padding: 0 5px;
         }
 
         .nav-btn {
-            background: rgba(56, 189, 248, 0.2);
-            border: 1px solid var(--blue-primary);
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             color: white;
             width: 45px;
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .nav-btn:hover {
             background: var(--blue-secondary);
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
         }
 
-        /* --- EFEK KELOPAK BUNGA GUGUR --- */
+        /* --- RAIN KELOPAK MAWAR & LILY BIRU --- */
         .petal {
             position: absolute;
-            background: radial-gradient(circle, #bae6fd, #38bdf8);
-            border-radius: 150% 0 150% 50%;
-            opacity: 0.7;
             pointer-events: none;
             animation: fall linear infinite;
+            user-select: none;
         }
 
         @keyframes fall {
             0% {
-                transform: translateY(-20px) rotate(0deg);
-                opacity: 0.7;
+                transform: translateY(-50px) rotate(0deg) scale(0.6);
+                opacity: 0;
             }
+            15% { opacity: 0.8; }
             100% {
-                transform: translateY(105vh) rotate(360deg);
+                transform: translateY(105vh) rotate(360deg) scale(1.1);
                 opacity: 0;
             }
         }
 
-        /* --- SCREEN 3: SURAT DALAM AMPLOP --- */
+        /* --- SCREEN 3: SURAT AMPLOP --- */
         .envelope-container {
             cursor: pointer;
             position: relative;
-            width: 250px;
+            width: 260px;
             height: 180px;
             background: #0284c7;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             transition: transform 0.3s;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .envelope-container:hover {
@@ -282,9 +279,9 @@
             top: 0;
             width: 0;
             height: 0;
-            border-left: 125px solid transparent;
-            border-right: 125px solid transparent;
-            border-top: 100px solid #0369a1;
+            border-left: 130px solid transparent;
+            border-right: 130px solid transparent;
+            border-top: 105px solid #0369a1;
             transform-origin: top;
             transition: transform 0.4s ease;
             z-index: 3;
@@ -298,11 +295,11 @@
         .envelope-pocket {
             position: absolute;
             bottom: 0;
-            width: 250px;
-            height: 110px;
+            width: 260px;
+            height: 115px;
             background: #0ea5e9;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
             z-index: 2;
         }
 
@@ -310,14 +307,14 @@
             position: absolute;
             bottom: 10px;
             left: 15px;
-            width: 220px;
+            width: 230px;
             height: 140px;
-            background: #f0fdfa;
-            border-radius: 5px;
-            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
             color: #0f172a;
             z-index: 15;
-            transition: transform 0.6s ease, opacity 0.5s;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.5s;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
             opacity: 0;
             transform: translateY(0);
@@ -331,270 +328,37 @@
 
         .envelope-container.open .letter {
             opacity: 1;
-            transform: translateY(-110px) scale(1.3);
+            transform: translateY(-120px) scale(1.3);
             pointer-events: auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.6);
             height: auto;
-            min-height: 160px;
+            min-height: 170px;
         }
 
         .letter p {
             font-size: 0.9rem;
             line-height: 1.5;
             font-weight: 500;
+            font-style: italic;
         }
 
         .letter .signature {
-            margin-top: 12px;
+            margin-top: 15px;
             font-weight: bold;
+            font-style: normal;
             color: var(--blue-secondary);
+            letter-spacing: 0.5px;
         }
 
         /* --- SCREEN 4: ANIMASI AKHIR --- */
         .animated-text {
-            font-size: 4.5rem;
-            font-weight: 800;
+            font-size: 5rem;
+            font-weight: 900;
             color: var(--blue-primary);
-            text-shadow: 0 0 35px rgba(56, 189, 248, 0.7);
-            animation: fadeInOut 3s ease-in-out infinite;
-            letter-spacing: 2px;
+            text-shadow: 0 0 40px rgba(56, 189, 248, 0.8);
+            animation: fadeInOut 2.5s ease-in-out infinite;
+            letter-spacing: 3px;
         }
 
         @keyframes fadeInOut {
-            0%, 100% { opacity: 0; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        /* Ilustrasi Ornamen Bunga Statik Blue Aesthetic */
-        .bg-flower-decor {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 20%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .top-left { top: -20px; left: -20px; }
-        .bottom-right { bottom: -20px; right: -20px; }
-    </style>
-</head>
-<body>
-
-    <div class="bg-flower-decor top-left"></div>
-    <div class="bg-flower-decor bottom-right"></div>
-    <div id="petal-container"></div>
-
-    <div id="flower-transition-overlay"></div>
-
-    <div class="screen active" id="screen-pin">
-        <div class="pin-container">
-            <h2>Masukkan PIN Kenangan</h2>
-            <p>Tanggal awal pertemuan kita</p>
-            <div class="pin-inputs">
-                <input type="text" maxlength="2" class="pin-box" id="pin1" placeholder="DD" oninput="moveFocus(this, 'pin2')">
-                <input type="text" maxlength="2" class="pin-box" id="pin2" placeholder="MM" oninput="moveFocus(this, 'pin3')">
-                <input type="text" maxlength="4" class="pin-box" id="pin3" style="width: 70px;" placeholder="YYYY">
-            </div>
-            <button class="btn" onclick="checkPin()">Buka Kisah</button>
-        </div>
-    </div>
-
-    <div class="screen" id="screen-slideshow">
-        <div class="slider-wrapper">
-            <div class="slide-container">
-                <div class="slide active">
-                    <img src="WhatsApp Image 2026-05-27 at 21.55.33 (1).jpeg" alt="Foto 1">
-                    <div class="slide-caption">hai aku addel kecil dan nanda kecil kita</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-05-27 at 21.55.33.jpeg" alt="Foto 2">
-                    <div class="slide-caption">jujur disini kamu ganteng banget</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-05-27 at 21.55.35.jpeg" alt="Foto 3">
-                    <div class="slide-caption">hai manis berjaket pink</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-05-27 at 21.55.34.jpeg" alt="Foto 4">
-                    <div class="slide-caption">kenalin ini perantara kita namanya cipuy dan cipoy</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-06-02 at 17.02.28.jpeg" alt="Foto 5">
-                    <div class="slide-caption">foto jamet kita di roblox</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-06-02 at 17.01.45 (1).jpeg" alt="Foto 6">
-                    <div class="slide-caption">ini aku lebih fokus ke rambut baruku yang abis dipotong masa awal banget vc an</div>
-                </div>
-                <div class="slide">
-                    <img src="WhatsApp Image 2026-06-02 at 17.01.45.jpeg" alt="Foto 7">
-                    <div class="slide-caption">testi hp ip baru wkwkwk</div>
-                </div>
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="btn" id="next-journey-btn" style="display: none;" onclick="triggerFlowerTransition(3)">Lanjutkan</button>
-                <button class="nav-btn" onclick="changeSlide(1)">&#10095;</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="screen" id="screen-envelope">
-        <h2 style="color: var(--blue-primary); margin-bottom: 40px; font-size: 1.3rem; letter-spacing: 1px;">Klik Amplop untuk Membuka Surat</h2>
-        <div class="envelope-container" id="envelope" onclick="openEnvelope()">
-            <div class="envelope-flap"></div>
-            <div class="envelope-pocket"></div>
-            <div class="letter">
-                <p>"Terimakasih karena kamu selalu belajar menyayangiku"</p>
-                <div class="signature">- nando</div>
-            </div>
-        </div>
-        <button class="btn" id="btn-final" style="display:none; margin-top: 30px;" onclick="goToFinalScreen()">Kisah ini akan berlanjut...</button>
-    </div>
-
-    <div class="screen" id="screen-final">
-        <div class="animated-text">love u</div>
-    </div>
-
-    <script>
-        // Otomatis pindah kotak input PIN
-        function moveFocus(current, nextId) {
-            if (current.value.length >= current.maxLength) {
-                document.getElementById(nextId).focus();
-            }
-        }
-
-        // Cek Kevalidan PIN (02, 09, 2025)
-        function checkPin() {
-            const p1 = document.getElementById('pin1').value;
-            const p2 = document.getElementById('pin2').value;
-            const p3 = document.getElementById('pin3').value;
-
-            if (p1 === '02' && p2 === '09' && p3 === '2025') {
-                triggerFlowerTransition(2);
-            } else {
-                alert('PIN salah, coba ingat-ingat lagi tanggal awal kita bertemu ya! ❤️');
-            }
-        }
-
-        // Efek Transisi Bunga Bermekaran (Memenuhi Layar)
-        function triggerFlowerTransition(targetScreenId) {
-            const overlay = document.getElementById('flower-transition-overlay');
-            overlay.innerHTML = ''; // Reset
-            
-            // Generate kluster bulatan bunga bermekaran memenuhi layar
-            const flowerCount = 25;
-            for(let i=0; i<flowerCount; i++) {
-                const flower = document.createElement('div');
-                flower.classList.add('blooming-flower');
-                
-                // Distribusi acak di layar
-                flower.style.left = Math.random() * 100 + 'vw';
-                flower.style.top = Math.random() * 100 + 'vh';
-                
-                // Delay acak agar mekar bergantian secara organik
-                flower.style.transitionDelay = (Math.random() * 0.4) + 's';
-                
-                overlay.appendChild(flower);
-                
-                // Picu efek pembesaran mekar mendadak
-                setTimeout(() => {
-                    flower.style.width = '80vw';
-                    flower.style.height = '80vw';
-                    flower.style.opacity = '1';
-                }, 50);
-            }
-
-            // Ganti screen di tengah-tengah transisi saat layar tertutup bunga
-            setTimeout(() => {
-                switchScreen(targetScreenId);
-                if(targetScreenId === 3) {
-                    startPetalFall(); // Mulai efek kelopak bertaburan di Screen 3
-                }
-            }, 900);
-
-            // Bersihkan / Ciutkan kembali bunga setelah transisi selesai
-            setTimeout(() => {
-                const flowers = document.querySelectorAll('.blooming-flower');
-                flowers.forEach(f => {
-                    f.style.opacity = '0';
-                });
-            }, 1600);
-        }
-
-        // Fungsi Manajemen Pergantian Layar Utama
-        function switchScreen(screenNumber) {
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            
-            if (screenNumber === 2) {
-                document.getElementById('screen-slideshow').classList.add('active');
-            } else if (screenNumber === 3) {
-                document.getElementById('screen-envelope').classList.add('active');
-            } else if (screenNumber === 4) {
-                document.getElementById('screen-final').classList.add('active');
-            }
-        }
-
-        // Alur Kendali Slideshow Foto
-        let currentSlideIdx = 0;
-        const slides = document.querySelectorAll('.slide');
-        
-        function changeSlide(direction) {
-            slides[currentSlideIdx].classList.remove('active');
-            slides[currentSlideIdx].classList.remove('prev-slide');
-            
-            if(direction === 1 && currentSlideIdx < slides.length - 1) {
-                slides[currentSlideIdx].classList.add('prev-slide');
-                currentSlideIdx++;
-            } else if(direction === -1 && currentSlideIdx > 0) {
-                currentSlideIdx--;
-            }
-            
-            slides[currentSlideIdx].classList.add('active');
-
-            // Jika sudah mencapai foto terakhir (Foto ke-7), tampilkan tombol Lanjutkan ke Amplop
-            if (currentSlideIdx === slides.length - 1) {
-                document.getElementById('next-journey-btn').style.display = 'inline-block';
-            }
-        }
-
-        // Efek Hujan Kelopak Bunga Berjatuhan (Dari atas ke bawah)
-        function startPetalFall() {
-            const container = document.getElementById('petal-container');
-            setInterval(() => {
-                const petal = document.createElement('div');
-                petal.classList.add('petal');
-                
-                petal.style.left = Math.random() * 100 + 'vw';
-                const size = (Math.random() * 12) + 8 + 'px';
-                petal.style.width = size;
-                petal.style.height = size;
-                
-                petal.style.animationDuration = (Math.random() * 3) + 3 + 's';
-                container.appendChild(petal);
-                
-                setTimeout(() => {
-                    petal.remove();
-                }, 6000);
-            }, 200);
-        }
-
-        // Mekanisme Interaksi Klik Amplop & Surat
-        function openEnvelope() {
-            const env = document.getElementById('envelope');
-            env.classList.add('open');
-            
-            // Munculkan tombol kelanjutan setelah surat berhasil terbuka sempurna
-            setTimeout(() => {
-                document.getElementById('btn-final').style.display = 'inline-block';
-            }, 1000);
-        }
-
-        // Menuju ke Halaman Terakhir Animasi Akhir "Love u"
-        function goToFinalScreen() {
-            switchScreen(4);
-        }
-    </script>
-</body>
-</html>
+            0%, 100% { opacity:
